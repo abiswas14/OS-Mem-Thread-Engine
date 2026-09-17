@@ -13,7 +13,12 @@ $(BIN): $(SRC) include/vm.h include/transport.h
 run: $(BIN)
 	./$(BIN) all
 
+check:
+	$(MAKE) clean
+	$(MAKE) all
+	./$(BIN) all >/dev/null
+
 clean:
 	rm -rf bin
 
-.PHONY: all run clean
+.PHONY: all run check clean
